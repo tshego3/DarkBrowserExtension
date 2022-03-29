@@ -1,38 +1,32 @@
 {
   "name": "Dark Browser Extension",
   "description": "A Chromium extension to set any website into dark theme.",
-  "version": "1.0",
-  "manifest_version": 3,
-  "background": {
-    "service_worker": "background.js"
-  },
-  "permissions": [ "storage", "activeTab", "scripting" ],
   "action": {
-    "default_popup": "popup/popup.html",
     "default_icon": {
       "16": "icons/darkbrowserextension16.png",
       "32": "icons/darkbrowserextension32.png",
       "48": "icons/darkbrowserextension48.png"
     }
   },
+  "manifest_version": 3,
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "icons": {
     "16": "icons/darkbrowserextension16.png",
     "32": "icons/darkbrowserextension32.png",
     "48": "icons/darkbrowserextension48.png"
   },
-  "web_accessible_resources": [
-    {
-      "resources": [ "lib/jquery-3.6.0.min.js" ],
-      "matches": [ "*://*/*" ]
-    },
-    {
-      "resources": [ "lib/jquery-3.6.0.min.js" ],
-      "matches": [ "https://web-accessible-resources-1.glitch.me/*" ]
-    },
-    {
-      "resources": [ "lib/jquery-3.6.0.min.js" ],
-      "matches": [ "https://web-accessible-resources-2.glitch.me/*" ],
-      "use_dynamic_url": true
-    }
+  "host_permissions": [
+    "*://*/*",
+    "http://*/",
+    "https://*/"
   ]
 }
